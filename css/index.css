@@ -1,45 +1,122 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #333;
-  line-height: 1.25rem;
-  background-color: #f4f6f8;
+/* ===== Base / reset ===== */
+* {
+  box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+
+  background: #0b1220;
+
+  color: #e6e8ee;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  line-height: 1.6;
+}
+
+/* Center header content */
 header {
   text-align: center;
+  padding: 24px 18px;
 }
 
-section {
-  margin-block: 20px;
-  border: 2px dashed #ccc;
-}
-
-li {
-  margin-block: 2px;
-}
-
-h1 {
-  font-family: cursive;
-  font-size: 40px;
-  font-weight: 700;
-  letter-spacing: 2px;
+/* Transform the style of your Name at the top */
+.name {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  color: #1a73e8;
+
+  background: linear-gradient(90deg, #9bdcff, #c3ffdf);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* STRETCH GOAL: picture styling */
+.profile-pic {
+  margin-top: 14px;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 999px;
+  border: 3px solid rgba(155, 220, 255, 0.7);
+}
+
+/* Add spacing (padding/margin) between sections */
+section {
+  max-width: 900px;
+  margin: 18px auto 0 auto;
+  padding: 22px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Change the alignment of ONE section (example: About) */
+#About {
   text-align: center;
 }
 
+/* Change font size, weight, and color of headings */
 h2 {
-  color: #cb731c;
+  margin: 0 0 12px 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #9bdcff;
+  letter-spacing: 0.3px;
 }
 
-h3 {
-  color: red;
+/* Experience list items into styled blocks */
+#Experience ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-footer {
-  padding: 5px;
-  text-align: center;
-  background-color: #22466c;
-  color: #ffffff;
-  font-weight: bold;
+#Experience li {
+  margin: 10px 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+#Experience li:hover {
+  transform: translateY(-1px);
+}
+
+/* Transform the style of the "Connect" links */
+.connect-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.connect-links a {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+
+  background: rgba(155, 220, 255, 0.18);
+  border: 1px solid rgba(155, 220, 255, 0.5);
+  color: #e6e8ee;
+}
+
+.connect-links a:hover {
+  background: rgba(195, 255, 223, 0.18);
+  border-color: rgba(195, 255, 223, 0.6);
+}
+
+/* Accessibility: keyboard focus */
+.connect-links a:focus {
+  outline: 3px solid rgba(155, 220, 255, 0.7);
+  outline-offset: 3px;
 }
