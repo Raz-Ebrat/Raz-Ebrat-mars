@@ -1,35 +1,64 @@
 <!doctype html>
-<html lang="eng">
+<html lang="en">
   <head>
-    <meta charset="UFT-8" />
+    <meta charset="UTF-8" />
     <title>Raz Ebrat's Portfolio</title>
     <meta name="description" content="Portfolio website of Raz Ebrat" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/index.css" rel="stylesheet" />
   </head>
+
   <body>
-    <h1>Raz Ebrat</h1>
+    <header>
+      <h1 class="name">Raz Ebrat</h1>
 
-    <section id="About">
+      <!-- STRETCH GOAL: photo (accessible) -->
+      <img
+        class="profile-pic"
+        src="images/raz.jpg"
+        alt="Portrait of Raz Ebrat"
+      />
+    </header>
+
+    <main>
+      <section id="About">
         <h2>About</h2>
-        <p>I am an aspiring software developer learning HTML, CSS, and JavaScript.</p>
-    </section>
+        <p>
+          I am an aspiring software developer learning HTML, CSS, and
+          JavaScript.
+        </p>
+      </section>
 
-    <section id="Experience">
+      <section id="Experience">
         <h2>Experience</h2>
         <ul>
-            <li>Code the Dream student</li>
-            <li>Learning Git and GitHub</li>
-            <li>Practicing HTML and CSS</li>
+          <li>Code the Dream student</li>
+          <li>Learning Git and GitHub</li>
+          <li>Practicing HTML and CSS</li>
         </ul>
-    </section>
+      </section>
 
-    <section id="Connect">
+      <section id="Connect">
         <h2>Connect</h2>
-        <ul>
-            <li><a href="https://github.com/Raz-Ebrat" target="_blank">GitHub</a></li>
-            <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+        <ul class="connect-links">
+          <li>
+            <a
+              href="https://github.com/Raz-Ebrat"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn</a
+            >
+          </li>
         </ul>
-    </section>
-</body>
+      </section>
+    </main>
   </body>
 </html>
