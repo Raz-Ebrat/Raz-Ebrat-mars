@@ -21,14 +21,14 @@ header {
   text-align: center;
   padding: 24px 18px;
 
-  /* Added (stretch goal) sticky header*/
+  /* ADDED (Stretch goal): sticky header */
   position: sticky;
   top: 0;
-  z-index: 100;
-  backdrop-filter: blur (8px);
+  z-index: 1000;
+  backdrop-filter: blur(8px);
 }
 
-/* Added: Nav styling*/
+/* ADDED: Nav styling */
 .site-nav {
   display: flex;
   justify-content: center;
@@ -44,20 +44,22 @@ header {
   padding: 8px 10px;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(195, 255, 223, 0.6);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .site-nav a:hover {
   background: rgba(155, 220, 255, 0.18);
   border-color: rgba(155, 220, 255, 0.5);
 }
-/* Transform name-style at the top */
+
+/* Transform the style of your Name at the top */
 .name {
   margin: 0;
   font-size: 2.2rem;
   font-weight: 900;
   letter-spacing: 1px;
   text-transform: uppercase;
+
   background: linear-gradient(90deg, #9bdcff, #c3ffdf);
   -webkit-background-clip: text;
   background-clip: text;
@@ -83,7 +85,7 @@ section {
   background: rgba(255, 255, 255, 0.06);
 }
 
-/* Change the alignment of ONE section */
+/* UPDATED: your HTML id is "about" not "About" */
 #about {
   text-align: center;
 }
@@ -97,20 +99,23 @@ h2 {
   letter-spacing: 0.3px;
 }
 
-/* Experience section is now flex-based */
-.experiec-item {
-  margin: 10px;
+/* =========================================================
+   UPDATED: Experience section is now flex-based (not a <ul>)
+   ========================================================= */
+
+.experience-item {
+  margin: 10px 0;
   padding: 14px 16px;
   border-radius: 12px;
   background: rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.experiec-item:hover {
+.experience-item:hover {
   transform: translateY(-1px);
 }
 
-.experiec-row {
+.experience-row {
   display: flex;
   justify-content: space-between;
   gap: 16px;
@@ -133,6 +138,7 @@ h2 {
   margin: 8px 0 0 0;
   opacity: 0.92;
 }
+
 /* Transform the style of the "Connect" links */
 .connect-links {
   list-style: none;
