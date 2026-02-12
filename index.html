@@ -10,6 +10,14 @@
 
   <body>
     <header>
+      <nav class="site-nav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#connect">Connect</a>
+      </nav>
+
       <h1 class="name">Raz Ebrat</h1>
 
       <!-- STRETCH GOAL: photo (accessible) -->
@@ -21,7 +29,7 @@
     </header>
 
     <main>
-      <section id="About">
+      <section id="about">
         <h2>About</h2>
         <p>
           I am an aspiring software developer learning HTML, CSS, and
@@ -29,16 +37,33 @@
         </p>
       </section>
 
-      <section id="Experience">
+      <section id="experience">
         <h2>Experience</h2>
-        <ul>
-          <li>Code the Dream student</li>
-          <li>Learning Git and GitHub</li>
-          <li>Practicing HTML and CSS</li>
-        </ul>
+
+        <div class="experience-item">
+          <div class="experience-row">
+            <h3 class="job-title">Code the Dream Student</h3>
+            <span class="job-dates">Present</span>
+          </div>
+
+          <p class="job-desc">
+            Learning Git and GitHub; practicing HTML and CSS.
+          </p>
+        </div>
       </section>
 
-      <section id="Connect">
+      <section id="skills">
+        <h2>Skills</h2>
+        <!--leave empty for now-->
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <!--left it empty for later JavaScript-->
+        <ul id="project-list"></ul>
+      </section>
+
+      <section id="connect">
         <h2>Connect</h2>
         <ul class="connect-links">
           <li>
