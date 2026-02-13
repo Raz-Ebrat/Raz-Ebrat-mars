@@ -1,4 +1,6 @@
-/* ===== Base / reset ===== */
+/* =========================================================
+   (MOBILE-FIRST DEFAULT)
+========================================================= */
 * {
   box-sizing: border-box;
 }
@@ -6,168 +8,186 @@
 body {
   margin: 0;
   padding: 0;
-
   background: #0b1220;
-
   color: #e6e8ee;
-
   font-family: Arial, Helvetica, sans-serif;
-
   line-height: 1.6;
 }
 
-/* Center header content */
+/* =========================================================
+   HEADER (MOBILE)
+========================================================= */
 header {
   text-align: center;
-  padding: 24px 18px;
-
-  /* ADDED (Stretch goal): sticky header */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* ADDED: Nav styling */
+/* NAVIGATION LINKS */
 .site-nav {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 14px;
+  gap: 24px;
+  margin-bottom: 16px;
 }
 
+/* STYLE LINKS */
 .site-nav a {
   text-decoration: none;
-  font-weight: 700;
   color: #e6e8ee;
-  padding: 8px 10px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.06);
+  font-weight: 600;
 }
 
-.site-nav a:hover {
-  background: rgba(155, 220, 255, 0.18);
-  border-color: rgba(155, 220, 255, 0.5);
-}
-
-/* Transform the style of your Name at the top */
 .name {
   margin: 0;
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 900;
   letter-spacing: 1px;
   text-transform: uppercase;
-
   background: linear-gradient(90deg, #9bdcff, #c3ffdf);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  text-align: center;
 }
 
-/* STRETCH GOAL: picture styling */
 .profile-pic {
-  margin-top: 14px;
+  margin: 0 auto;
+  display: block;
   width: 140px;
   height: 140px;
-  object-fit: cover;
   border-radius: 999px;
-  border: 3px solid rgba(155, 220, 255, 0.7);
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.18);
 }
 
-/* Add spacing (padding/margin) between sections */
+/* =========================================================
+   SECTIONS (MOBILE)
+========================================================= */
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 14px 28px;
+}
+
 section {
-  max-width: 900px;
-  margin: 18px auto 0 auto;
-  padding: 22px 18px;
+  margin-top: 18px;
+  padding: 18px;
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.06);
 }
 
-/* UPDATED: your HTML id is "about" not "About" */
-#about {
-  text-align: center;
-}
-
-/* Change font size, weight, and color of headings */
 h2 {
   margin: 0 0 12px 0;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: #9bdcff;
-  letter-spacing: 0.3px;
+}
+
+/* Example content lists */
+ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+li {
+  margin: 8px 0;
 }
 
 /* =========================================================
-   UPDATED: Experience section is now flex-based (not a <ul>)
-   ========================================================= */
-
-.experience-item {
-  margin: 10px 0;
-  padding: 14px 16px;
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.experience-item:hover {
-  transform: translateY(-1px);
-}
-
-.experience-row {
+   EXPERIENCE / CONNECT (MOBILE)
+   (Keeping flex here for small screens)
+========================================================= */
+.experience-cards,
+.connect-cards {
   display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  align-items: baseline;
-}
-
-.job-title {
-  margin: 0;
-  font-size: 1.05rem;
-  font-weight: 800;
-}
-
-.job-dates {
-  white-space: nowrap;
-  opacity: 0.85;
-  font-weight: 700;
-}
-
-.job-desc {
-  margin: 8px 0 0 0;
-  opacity: 0.92;
-}
-
-/* Transform the style of the "Connect" links */
-.connect-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
+  flex-direction: column;
   gap: 12px;
-  flex-wrap: wrap;
 }
 
-.connect-links a {
-  display: inline-block;
-  padding: 10px 14px;
+.card {
+  padding: 14px;
   border-radius: 12px;
-  text-decoration: none;
-  font-weight: 700;
-
-  background: rgba(155, 220, 255, 0.18);
-  border: 1px solid rgba(155, 220, 255, 0.5);
-  color: #e6e8ee;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.connect-links a:hover {
-  background: rgba(195, 255, 223, 0.18);
-  border-color: rgba(195, 255, 223, 0.6);
+/* =========================================================
+   TABLET STYLES (>= 768px)
+  changing 2+ properties across 3+ elements 
+========================================================= */
+@media (min-width: 768px) {
+  header {
+    padding: 34px 22px;
+    text-align: left;
+  }
+
+  /* 2) name changes (2 props) */
+  .name {
+    font-size: 2.4rem;
+    letter-spacing: 2px;
+  }
+
+  /* 3) sections changes (2 props) */
+  section {
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  /* optional tablet layout improvements */
+  main {
+    padding: 0 22px 40px;
+  }
+
+  /* make cards flow nicer */
+  .experience-cards,
+  .connect-cards {
+    gap: 14px;
+  }
 }
 
-/* Accessibility: keyboard focus */
-.connect-links a:focus {
-  outline: 3px solid rgba(155, 220, 255, 0.7);
-  outline-offset: 3px;
+/* =========================================================
+   DESKTOP / LARGE (>= 1024px)
+chaning 2+ properties across 3+ elements 
+   + STRETCH GOAL: convert Experience to Grid 
+========================================================= */
+@media (min-width: 1024px) {
+  /* 1) typography changes (2 props) */
+  body {
+    font-size: 18px;
+    line-height: 1.75;
+  }
+
+  /* 2) header changes (2 props) */
+  header {
+    padding: 44px 28px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  /* 3) h2 changes (2 props) */
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+
+  /* STRETCH GOAL: EXPERIENCE becomes GRID on desktop */
+  .experience-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  /* Optional: connect can stay flex or also become grid */
+  .connect-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .card {
+    padding: 16px;
+    border-radius: 16px;
+  }
 }
