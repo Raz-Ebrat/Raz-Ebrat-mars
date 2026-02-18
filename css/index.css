@@ -20,6 +20,36 @@ body {
 header {
   text-align: center;
   padding: 24px 18px;
+
+  /* ADDED (Stretch goal): sticky header */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+/* ADDED: Nav styling */
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #e6e8ee;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.site-nav a:hover {
+  background: rgba(155, 220, 255, 0.18);
+  border-color: rgba(155, 220, 255, 0.5);
 }
 
 /* Transform the style of your Name at the top */
@@ -55,8 +85,8 @@ section {
   background: rgba(255, 255, 255, 0.06);
 }
 
-/* Change the alignment of ONE section (example: About) */
-#About {
+/* UPDATED: your HTML id is "about" not "About" */
+#about {
   text-align: center;
 }
 
@@ -69,14 +99,11 @@ h2 {
   letter-spacing: 0.3px;
 }
 
-/* Experience list items into styled blocks */
-#Experience ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+/* =========================================================
+   UPDATED: Experience section is now flex-based (not a <ul>)
+   ========================================================= */
 
-#Experience li {
+.experience-item {
   margin: 10px 0;
   padding: 14px 16px;
   border-radius: 12px;
@@ -84,8 +111,32 @@ h2 {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-#Experience li:hover {
+.experience-item:hover {
   transform: translateY(-1px);
+}
+
+.experience-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.job-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.job-dates {
+  white-space: nowrap;
+  opacity: 0.85;
+  font-weight: 700;
+}
+
+.job-desc {
+  margin: 8px 0 0 0;
+  opacity: 0.92;
 }
 
 /* Transform the style of the "Connect" links */
