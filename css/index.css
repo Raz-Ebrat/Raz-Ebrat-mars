@@ -22,6 +22,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 24px 18px;
 }
 
 /* NAVIGATION LINKS */
@@ -30,6 +31,8 @@ header {
   justify-content: center;
   gap: 24px;
   margin-bottom: 16px;
+  flex-wrap: wrap; /* prevents overflow on small screens */
+  row-gap: 10px;
 }
 
 /* STYLE LINKS */
@@ -37,6 +40,11 @@ header {
   text-decoration: none;
   color: #e6e8ee;
   font-weight: 600;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  text-decoration: underline;
 }
 
 .name {
@@ -53,7 +61,7 @@ header {
 }
 
 .profile-pic {
-  margin: 0 auto;
+  margin: 14px auto 0;
   display: block;
   width: 140px;
   height: 140px;
@@ -85,7 +93,7 @@ h2 {
   color: #9bdcff;
 }
 
-/* Example content lists */
+/* Base lists */
 ul {
   margin: 0;
   padding-left: 18px;
@@ -96,26 +104,54 @@ li {
 }
 
 /* =========================================================
-   EXPERIENCE / CONNECT (MOBILE)
-   (Keeping flex here for small screens)
+   EXPERIENCE (matches your HTML)
 ========================================================= */
-.experience-cards,
-.connect-cards {
+.experience-row {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   gap: 12px;
+  align-items: baseline;
 }
 
-.card {
-  padding: 14px;
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.job-title {
+  margin: 0;
+}
+
+.job-dates {
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+.job-desc {
+  margin: 8px 0 0;
+}
+
+/* =========================================================
+   CONNECT (matches your HTML)
+========================================================= */
+.connect-links {
+  list-style: none;
+  padding: 0;
+}
+
+.connect-links li {
+  margin: 10px 0;
+}
+
+.connect-links a {
+  color: #e6e8ee;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.connect-links a:hover,
+.connect-links a:focus {
+  text-decoration: underline;
 }
 
 /* =========================================================
    TABLET STYLES (>= 768px)
-  changing 2+ properties across 3+ elements 
+   changing 2+ properties across 3+ elements
 ========================================================= */
 @media (min-width: 768px) {
   header {
@@ -123,76 +159,46 @@ li {
     text-align: left;
   }
 
-  /* 2) name changes (2 props) */
   .name {
     font-size: 2.4rem;
     letter-spacing: 2px;
   }
 
-  /* 3) sections changes (2 props) */
   section {
     padding: 22px;
     border-radius: 18px;
   }
 
-  /* optional tablet layout improvements */
   main {
     padding: 0 22px 40px;
-  }
-
-  /* make cards flow nicer */
-  .experience-cards,
-  .connect-cards {
-    gap: 14px;
   }
 }
 
 /* =========================================================
    DESKTOP / LARGE (>= 1024px)
-chaning 2+ properties across 3+ elements 
-   + STRETCH GOAL: convert Experience to Grid 
+   changing 2+ properties across 3+ elements
 ========================================================= */
 @media (min-width: 1024px) {
-  /* 1) typography changes (2 props) */
   body {
     font-size: 18px;
     line-height: 1.75;
   }
 
-  /* 2) header changes (2 props) */
   header {
     padding: 44px 28px;
     max-width: 980px;
     margin: 0 auto;
   }
 
-  /* 3) h2 changes (2 props) */
   h2 {
     font-size: 1.5rem;
     margin-bottom: 16px;
   }
-
-  /* STRETCH GOAL: EXPERIENCE becomes GRID on desktop */
-  .experience-cards {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-  }
-
-  /* Optional: connect can stay flex or also become grid */
-  .connect-cards {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
-  }
-
-  .card {
-    padding: 16px;
-    border-radius: 16px;
-  }
 }
 
-/* ===== Skills section ===== */
+/* =========================================================
+   SKILLS
+========================================================= */
 #skills ul {
   list-style: none; /* removes bullets */
   padding: 0; /* removes default left padding */
@@ -209,4 +215,108 @@ chaning 2+ properties across 3+ elements
   border-radius: 999px; /* pill shape */
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.06);
+}
+
+/* =========================================================
+   LEAVE A MESSAGE (form styling)
+========================================================= */
+#leave-message form {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+#leave-message label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+#leave-message input,
+#leave-message textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.18);
+  color: #e6e8ee;
+}
+
+#leave-message textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+#leave-message button[type="submit"] {
+  margin-top: 14px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: #e6e8ee;
+}
+
+#leave-message button[type="submit"]:hover,
+#leave-message button[type="submit"]:focus {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* Touch-friendly sizing on small screens */
+@media (max-width: 600px) {
+  #leave-message input,
+  #leave-message textarea,
+  #leave-message button[type="submit"] {
+    font-size: 1.05rem;
+  }
+}
+
+/* =========================================================
+   MESSAGES LIST
+========================================================= */
+#messages ul {
+  list-style: none;
+  padding: 0;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+#messages li {
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+#messages li a {
+  color: #9bdcff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+#messages li a:hover,
+#messages li a:focus {
+  text-decoration: underline;
+}
+
+#messages li span {
+  display: inline;
+  margin-left: 6px;
+}
+
+#messages li button {
+  margin-left: 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: #e6e8ee;
+}
+
+#messages li button:hover,
+#messages li button:focus {
+  background: rgba(255, 255, 255, 0.14);
 }
