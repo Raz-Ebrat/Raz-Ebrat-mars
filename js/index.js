@@ -47,10 +47,13 @@ const messageList = messageSection.querySelector("ul");
 messageForm.addEventListener("submit", (event) => {
   event.preventDefault(); // stop page refresh
 
-  // get values from form fields
+  // get values  form fields
   const usersName = event.target.usersName.value;
   const usersEmail = event.target.usersEmail.value;
   const usersMessage = event.target.usersMessage.value;
+
+  // REQUIRED: log values to console (per assignment)
+  console.log(usersName, usersEmail, usersMessage);
 
   // create new message list item
   const newMessage = document.createElement("li");
