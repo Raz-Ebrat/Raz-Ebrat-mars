@@ -320,3 +320,27 @@ li {
 #messages li button:focus {
   background: rgba(255, 255, 255, 0.14);
 }
+
+/* Projects Section */
+#projects ul {
+  list-style: none;
+  padding: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#projects li {
+  background-color: #e5e5e5;
+  color: #333; /* Fix text visibility */
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+/* Hover effect */
+#projects li:hover {
+  transform: scale(1.05);
+}
