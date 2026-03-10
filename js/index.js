@@ -1,83 +1,141 @@
 /* ========= FOOTER ========= */
 
-// select existing footer
-const footer = document.querySelector("footer");
-
-// get current year
+const footer = document.querySelector(".footer-inner");
 const today = new Date();
 const thisYear = today.getFullYear();
 
-// create or reuse copyright paragraph
-let copyright = document.querySelector("#copyright");
-if (!copyright) {
-  copyright = document.createElement("p");
-  copyright.id = "copyright";
-  footer.appendChild(copyright);
-}
-
-// add dynamic year text
-copyright.innerHTML = `\u00A9 ${thisYear} Raz Ebrat`;
+footer.innerHTML = `<p>&copy; ${thisYear} Raz Ebrat | Portfolio Project</p>`;
 
 /* ========= SKILLS ========= */
 
-// array of skills
-const skills = ["HTML", "CSS", "JavaScript", "GitHub"];
+const skills = [
+  {
+    name: "HTML",
+    logo: "https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white",
+  },
+  {
+    name: "CSS",
+    logo: "https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white",
+  },
+  {
+    name: "JavaScript",
+    logo: "https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black",
+  },
+  {
+    name: "Git",
+    logo: "https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white",
+  },
+  {
+    name: "GitHub",
+    logo: "https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white",
+  },
+  {
+    name: "Java",
+    logo: "https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=openjdk&logoColor=white",
+  },
+  {
+    name: "TestNG",
+    logo: "https://img.shields.io/badge/TestNG-DC382D?style=for-the-badge&logoColor=white",
+  },
+  {
+    name: "JUnit",
+    logo: "https://img.shields.io/badge/JUnit-25A162?style=for-the-badge&logo=junit5&logoColor=white",
+  },
+  {
+    name: "Cucumber",
+    logo: "https://img.shields.io/badge/Cucumber-23D96C?style=for-the-badge&logo=cucumber&logoColor=white",
+  },
+  {
+    name: "Jenkins",
+    logo: "https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white",
+  },
+  {
+    name: "Maven",
+    logo: "https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white",
+  },
+];
 
-// select skills section list
-const skillsSection = document.getElementById("skills");
-const skillsList = skillsSection.querySelector("ul");
+const skillsList = document.getElementById("skills-list");
+skillsList.innerHTML = "";
 
-// add each skill to list
 for (let i = 0; i < skills.length; i++) {
   const skill = document.createElement("li");
-  skill.innerText = skills[i];
+  skill.innerHTML = `
+    <img src="${skills[i].logo}" alt="${skills[i].name} logo" class="skill-logo" />
+  `;
   skillsList.appendChild(skill);
 }
 
 /* ========= MESSAGES ========= */
 
-// select form by name
 const messageForm = document.forms["leave_message"];
-
-// select messages section and list
 const messageSection = document.querySelector("#messages");
 const messageList = messageSection.querySelector("ul");
 
-// handle form submit
 messageForm.addEventListener("submit", (event) => {
-  event.preventDefault(); // stop page refresh
+  event.preventDefault();
 
-  // get values  form fields
   const usersName = event.target.usersName.value;
   const usersEmail = event.target.usersEmail.value;
   const usersMessage = event.target.usersMessage.value;
 
-  // REQUIRED: log values to console (per assignment)
   console.log(usersName, usersEmail, usersMessage);
 
-  // create new message list item
   const newMessage = document.createElement("li");
 
-  // add name (mailto link) and message text
   newMessage.innerHTML = `
     <a href="mailto:${usersEmail}">${usersName}</a>
     <span> ${usersMessage}</span>
   `;
 
-  // create remove button
   const removeButton = document.createElement("button");
   removeButton.innerText = "remove";
   removeButton.type = "button";
 
-  // remove message when button clicked
   removeButton.addEventListener("click", (e) => {
     const entry = e.target.parentNode;
     entry.remove();
   });
 
-  // add button + message to list
   newMessage.appendChild(removeButton);
   messageList.appendChild(newMessage);
 
-  event.target.reset(); // clear form
+  event.target.reset();
 });
+
+/* ========= PROJECTS ========= */
+
+fetch("https://api.github.com/users/Raz-Ebrat/repos")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`GitHub API error: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then((repositories) => {
+    console.log("Repositories loaded:", repositories);
+
+    const projectList = document.getElementById("project-list");
+    projectList.innerHTML = "";
+
+    for (let i = 0; i < repositories.length; i++) {
+      if (repositories[i].name === "raz-open-api-project") {
+        const project = document.createElement("li");
+        const projectLink = document.createElement("a");
+
+        projectLink.href = repositories[i].html_url;
+        projectLink.target = "_blank";
+        projectLink.rel = "noopener noreferrer";
+        projectLink.innerText = "Open API Project";
+
+        project.appendChild(projectLink);
+        projectList.appendChild(project);
+      }
+    }
+  })
+  .catch((error) => {
+    console.error("Error fetching repositories:", error);
+
+    const projectList = document.getElementById("project-list");
+    projectList.innerHTML = "<li>Unable to load project right now.</li>";
+  });

@@ -5,28 +5,36 @@
     <title>Raz Ebrat's Portfolio</title>
     <meta name="description" content="Portfolio website of Raz Ebrat" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link href="css/index.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
   </head>
 
   <body>
-    <header>
-      <nav class="site-nav">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#connect">Connect</a>
-        <a href="#leave-message">Message</a>
-      </nav>
-
+    <header class="hero">
       <h1 class="name">Raz Ebrat</h1>
+      <p class="tagline">
+        Aspiring Software Developer | Code the Dream Student
+      </p>
 
-      <!-- STRETCH GOAL: photo (accessible) -->
       <img
         class="profile-pic"
         src="images/raz.jpg"
         alt="Portrait of Raz Ebrat"
       />
+
+      <nav class="site-nav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#projects">Projects</a>
+        <a href="#connect">Connect</a>
+        <a href="#leave-message">Message</a>
+      </nav>
     </header>
 
     <main>
@@ -34,96 +42,124 @@
         <h2>About</h2>
         <p>
           I am an aspiring software developer learning HTML, CSS, and
-          JavaScript.
+          JavaScript. I enjoy building projects, improving my technical skills,
+          and growing step by step as a developer.
         </p>
       </section>
 
       <section id="experience">
         <h2>Experience</h2>
 
-        <!-- UPDATED: replaced list with flex-friendly structure -->
+        <div class="experience-item">
+          <div class="experience-row">
+            <h3 class="job-title">Secondary Student Advisor</h3>
+            <span class="job-dates"
+              >Fredericksburg City Public Schools | Present</span
+            >
+          </div>
+          <p class="job-desc">
+            Support Afghan students and families with school enrollment,
+            academic planning, communication with school staff, and access to
+            educational resources. Help families understand school procedures,
+            student progress, and available support services.
+          </p>
+        </div>
+
         <div class="experience-item">
           <div class="experience-row">
             <h3 class="job-title">Code the Dream Student</h3>
             <span class="job-dates">Present</span>
           </div>
           <p class="job-desc">
-            Learning Git and GitHub; practicing HTML and CSS.
+            Building skills in HTML, CSS, JavaScript, Git, and GitHub through
+            hands-on projects, debugging assignments, portfolio development, and
+            Open API applications.
           </p>
         </div>
       </section>
 
       <section id="skills">
         <h2>Skills</h2>
-        <ul></ul>
+        <ul id="skills-list"></ul>
+      </section>
+
+      <section id="certifications">
+        <h2>Certifications</h2>
+        <ul class="cert-list">
+          <li>ISTQB®/ASTQB® Certified Tester – Foundation Level</li>
+          <li>Programmer/Analyst Aptitude</li>
+          <li>SQL</li>
+          <li>Software Testing</li>
+        </ul>
       </section>
 
       <section id="projects">
         <h2>Projects</h2>
-
-        <!-- UPDATED: must be empty for later JavaScript -->
         <ul id="project-list"></ul>
       </section>
 
-      <section id="connect">
+      <section id="connect" class="connect-section">
         <h2>Connect</h2>
-        <ul class="connect-links">
-          <li>
-            <a
-              href="https://github.com/Raz-Ebrat"
-              target="_blank"
-              rel="noopener noreferrer"
-              >GitHub</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              >LinkedIn</a
-            >
-          </li>
-        </ul>
+        <div class="connect-divider"></div>
+
+        <div class="connect-buttons">
+          <a
+            href="mailto:razebrat1@gmail.com"
+            class="connect-btn icon-only"
+            aria-label="Email"
+          >
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+
+          <a
+            href="https://github.com/Raz-Ebrat"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="connect-btn"
+          >
+            <i class="fa-brands fa-github"></i>
+            <span>GitHub</span>
+          </a>
+
+          <a
+            href="https://www.linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="connect-btn linkedin-btn"
+          >
+            <i class="fa-brands fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+        </div>
       </section>
 
-      <!-- Leave a Message Section -->
       <section id="leave-message">
         <h2>Leave a Message</h2>
 
-        <form name="leave_message">
-          <label for="usersName">Name:</label><br />
-          <input
-            type="text"
-            name="usersName"
-            id="usersName"
-            required
-          /><br /><br />
+        <form name="leave_message" class="message-form">
+          <label for="usersName">Name:</label>
+          <input type="text" name="usersName" id="usersName" required />
 
-          <label for="usersEmail">Email:</label><br />
-          <input
-            type="email"
-            name="usersEmail"
-            id="usersEmail"
-            required
-          /><br /><br />
+          <label for="usersEmail">Email:</label>
+          <input type="email" name="usersEmail" id="usersEmail" required />
 
-          <label for="usersMessage">Message:</label><br />
-          <textarea name="usersMessage" id="usersMessage" required></textarea
-          ><br /><br />
+          <label for="usersMessage">Message:</label>
+          <textarea name="usersMessage" id="usersMessage" required></textarea>
 
           <button type="submit">Submit</button>
         </form>
       </section>
 
-      <!-- Messages Section -->
       <section id="messages">
         <h2>Messages</h2>
         <ul></ul>
       </section>
     </main>
 
-    <footer></footer>
+    <footer class="site-footer">
+      <div class="footer-inner"></div>
+    </footer>
+
     <script src="js/index.js"></script>
   </body>
 </html>
