@@ -15,7 +15,7 @@ The project was built using:
 
 ## Features
 
-- Responsive portfolio layou
+- Responsive portfolio layout
 - Navigation links to different sections of the page
 - Skills inserted dynamically with JavaScript
 - Selected GitHub repositories displayed using the GitHub API
