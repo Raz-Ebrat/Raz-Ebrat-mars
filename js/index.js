@@ -119,14 +119,22 @@ fetch("https://api.github.com/users/Raz-Ebrat/repos")
     projectList.innerHTML = "";
 
     for (let i = 0; i < repositories.length; i++) {
-      if (repositories[i].name === "raz-open-api-project") {
+      if (
+        repositories[i].name === "Raz-Ebrat-mars" ||
+        repositories[i].name === "raz-open-api-project"
+      ) {
         const project = document.createElement("li");
         const projectLink = document.createElement("a");
 
         projectLink.href = repositories[i].html_url;
         projectLink.target = "_blank";
         projectLink.rel = "noopener noreferrer";
-        projectLink.innerText = "Open API Project";
+
+        if (repositories[i].name === "Raz-Ebrat-mars") {
+          projectLink.innerText = "Portfolio Project";
+        } else if (repositories[i].name === "raz-open-api-project") {
+          projectLink.innerText = "Open API Project";
+        }
 
         project.appendChild(projectLink);
         projectList.appendChild(project);
@@ -137,5 +145,5 @@ fetch("https://api.github.com/users/Raz-Ebrat/repos")
     console.error("Error fetching repositories:", error);
 
     const projectList = document.getElementById("project-list");
-    projectList.innerHTML = "<li>Unable to load project right now.</li>";
+    projectList.innerHTML = "<li>Unable to load projects right now.</li>";
   });
